@@ -9,8 +9,11 @@
    <table class="table">
     <tbody>
      <tr>
-      <td><%= image_tag @user.get_profile_image(100,100) %><br>
-      <%=link_to @user.name, user_path(@user.id) %></td>
+      <td>
+       <%= link_to user_path(@user) do %>
+       <%= image_tag @user.get_profile_image(100,100) %><br>
+       <%=@user.name %>
+       <% end %></td>
       <td><%= link_to @book.title, book_path(@book.id) %></td>
       <td><%= @book.body %></td>
       <% if @user.id == current_user.id %>
